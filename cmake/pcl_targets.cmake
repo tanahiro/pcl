@@ -359,10 +359,6 @@ macro(PCL_ADD_TEST _name _exename)
       set_target_properties(${_exename} PROPERTIES FOLDER "Tests")
     endif(USE_PROJECT_FOLDERS)
 
-    if(CMAKE_COMPILER_IS_GNUCXX AND MINGW)
-      set_target_properties(${_exename} PROPERTIES LINK_FLAGS "-Wl,--allow-multiple-definition")
-    endif()
-
     if(${CMAKE_VERSION} VERSION_LESS 2.8.4)
       add_test(${_name} ${_exename} ${PCL_ADD_TEST_ARGUMENTS})
     else(${CMAKE_VERSION} VERSION_LESS 2.8.4)
